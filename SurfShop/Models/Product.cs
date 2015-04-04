@@ -12,8 +12,10 @@ namespace SurfShop.Models
 		public string Description { get; set; }
 		public int CompanyID { get; set; }
 		public int CategoryID { get; set; }
+		public int SubCategoryID { get; set; }
 
 		public virtual Company Company { get; set; }
 		public virtual Category Category { get; set; }
+		public virtual SubCategory SubCategory { get; set; }
 	}
 }
