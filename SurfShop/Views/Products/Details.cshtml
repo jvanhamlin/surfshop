@@ -4,12 +4,10 @@
     ViewBag.Title = "Details";
 }
 
-<h1>@Html.DisplayFor(model => model.Name)</h1>
-<h2>@Html.DisplayFor(model => model.Company.Name)</h2>
-<p>@Html.DisplayFor(model => model.Description)</p>
-<p>@Html.DisplayFor(model => model.SubCategory.Name)</p>
+<h2>Details</h2>
 
 <div>
+    <h4>Product</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -20,22 +18,20 @@
             @Html.DisplayFor(model => model.Category.Name)
         </dd>
 
-        
-        <dt>
-            @Html.DisplayNameFor(model => model.Category.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Category.Name)
-        </dd>
-
-
         <dt>
             @Html.DisplayNameFor(model => model.Company.Name)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Company.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubCategory.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubCategory.Name)
         </dd>
 
         <dt>

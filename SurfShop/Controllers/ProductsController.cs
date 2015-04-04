@@ -17,7 +17,7 @@ namespace SurfShop.Controllers
         // GET: Products
         public ActionResult Index()
         {
-            var products = db.Products.Include(p => p.Category).Include(s => s.SubCategory).Include(p => p.Company);
+            var products = db.Products.Include(p => p.Category).Include(p => p.Company).Include(p => p.SubCategory);
             return View(products.ToList());
         }
 
@@ -40,8 +40,8 @@ namespace SurfShop.Controllers
         public ActionResult Create()
         {
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name");
-			ViewBag.SubCategoryID = new SelectList(db.SubCategories, "SubCategoryID", "Name");
             ViewBag.CompanyID = new SelectList(db.Companies, "CompanyID", "Name");
+            ViewBag.SubCategoryID = new SelectList(db.SubCategories, "SubCategoryID", "Name");
             return View();
         }
 
@@ -60,8 +60,8 @@ namespace SurfShop.Controllers
             }
 
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name", product.CategoryID);
-			ViewBag.SubCategoryID = new SelectList(db.SubCategories, "SubCategoryID", "Name", product.SubCategoryID);
             ViewBag.CompanyID = new SelectList(db.Companies, "CompanyID", "Name", product.CompanyID);
+            ViewBag.SubCategoryID = new SelectList(db.SubCategories, "SubCategoryID", "Name", product.SubCategoryID);
             return View(product);
         }
 
@@ -77,9 +77,9 @@ namespace SurfShop.Controllers
             {
                 return HttpNotFound();
             }
-			ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name", product.CategoryID);
-			ViewBag.SubCategoryID = new SelectList(db.SubCategories, "SubCategoryID", "Name", product.SubCategoryID);
+            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name", product.CategoryID);
             ViewBag.CompanyID = new SelectList(db.Companies, "CompanyID", "Name", product.CompanyID);
+            ViewBag.SubCategoryID = new SelectList(db.SubCategories, "SubCategoryID", "Name", product.SubCategoryID);
             return View(product);
         }
 
@@ -97,8 +97,8 @@ namespace SurfShop.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name", product.CategoryID);
-			ViewBag.SubCategoryID = new SelectList(db.SubCategories, "SubCategoryID", "Name", product.SubCategoryID);
             ViewBag.CompanyID = new SelectList(db.Companies, "CompanyID", "Name", product.CompanyID);
+            ViewBag.SubCategoryID = new SelectList(db.SubCategories, "SubCategoryID", "Name", product.SubCategoryID);
             return View(product);
         }
 
